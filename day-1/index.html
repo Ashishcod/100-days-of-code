@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .hamburger-menu {
+    position: relative;
+  }
+
+  input {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    z-index: 2;
+    opacity: 0;
+  }
+
+  .hamburger-lines {
+    width: 50px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 1;
+  }
+
+  .line {
+    height: 8px;
+    width: 100%;
+    background: #6655ff;
+    border-radius: 10px;
+    transform: none;
+    transition: transform .5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  }
+
+  .line2 {
+    transition: opacity .5s cubic-bezier(0.77, 0.2, 0.05, 1.0), scale .4s ease;
+  }
+
+  .menu-items {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 50px 0 20px 0;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(242, 226, 216, 0);
+    transform: translate(0%, -80%);
+    transition: transform 1s ease-in-out, background .3s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  }
+
+  .menu-item {
+    opacity: 0;
+    transition: opacity .5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  }
+
+
+
+  input[type="checkbox"]:checked~.hamburger-lines div.line1 {
+    transform-orign: 50% 50%;
+    transform: translate(0px, 15px) rotate(45deg);
+
+  }
+
+  input[type="checkbox"]:checked~.hamburger-lines div.line2 {
+    opacity: 0;
+    transform: scale(.001, .001);
+  }
+
+  input[type="checkbox"]:checked~.hamburger-lines div.line3 {
+    transform-orign: 50% 50%;
+    transform: translate(0, -15px) rotate(-45deg);
+  }
+
+  input[type="checkbox"]:checked~.hamburger-lines div.line {
+    background: #000;
+  }
+
+  input[type="checkbox"]:checked~.menu-items {
+    transform: none;
+    background: #f2e2d8;
+  }
+
+  input[type="checkbox"]:checked~.menu-items .menu-item {
+    opacity: 1;
+  }
+
+  .slide {
+    width: 100%;
+  }
+</style>
+
+
+<body>
+  <div class="hamburger-menu">
+    <input type="checkbox">
+    <div class="hamburger-lines">
+      <div class="line line1"></div>
+      <div class="line line2"></div>
+      <div class="line line3"></div>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item">
+        Home
+      </div>
+      <div class="menu-item">
+        About
+      </div>
+      <div class="menu-item">
+        Contact Us
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
